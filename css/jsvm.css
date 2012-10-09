@@ -1,0 +1,199 @@
+/*
+@font-face {
+	font-family: 'Feast of Flesh BB';
+	src: url('../assets/fonts/feastofflesh/FEASFBRG.TTF') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+*/
+
+html, body {
+    color: #666;
+}
+
+html {
+    background: -moz-radial-gradient(center, ellipse cover, white 0%, #c0c0c0 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, white 0%, #c0c0c0 100%);
+    background: -o-radial-gradient(center, ellipse cover, white 0%, #c0c0c0 100%);
+    background: -ms-radial-gradient(center, ellipse cover, white 0%, #c0c0c0 100%);
+    background: radial-gradient(center, ellipse cover, white 0%, #c0c0c0 100%);
+}
+
+#reveal h1, 
+#reveal h2, 
+#reveal h3, 
+#reveal h4 {
+    margin-bottom: 40px;
+    color: black;
+    font-family: 'Open Sans Condensed', 'Trocchi', sans-serif;
+    text-transform: none;
+}
+
+#reveal div.doing-good-logo {
+    position: relative;
+    top: 150px;
+    left: -50px;
+    /*left: -330px;*/
+    font-family: 'MetaBold-Roman';
+    font-size: 200%;
+}
+
+#reveal div.doing-good-logo img {
+    float: left;
+}
+
+#reveal div.doing-good-logo div {
+    position: relative;
+    top: 100px;
+    color: white;
+}
+
+#reveal div.doing-good-logo div span {
+    color: black;
+}
+
+#reveal h1.doing-good {
+    position: relative;
+    top: 100px;
+    font-family: 'MetaBold-Roman';
+    font-size: 300%;
+    color: white;
+    line-height: 1.2em;
+}
+
+#reveal h1.old-school {
+    font-family: 'Commodore 64';
+}
+
+#reveal h1.computer {
+    font-family: Computerfont;
+    font-size: 124px;
+}
+
+#reveal h1.title-slide {
+    font-family: 'Feast of Flesh BB', sans-serif;
+}
+
+#reveal h1.inverted,
+#reveal h2.inverted,
+#reveal h3.inverted,
+#reveal h4.inverted {
+    color: #888;
+}
+
+#reveal h3.old-school {
+    font-family: 'Commodore 64 Pixelized';
+    font-size: 24pt;
+}
+
+#reveal ul.nobullets {
+    list-style: none;
+}
+
+#reveal table.features {
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 50px 0px;
+    margin: 100px auto;
+}
+
+#reveal table.features td.green {
+    color: #0a0;
+}
+
+#reveal table.features td.red {
+    color: #c00;
+}
+
+#reveal pre {
+    font-size: 24px;
+}
+
+#reveal a:not(.image) {
+    color: #b00010;
+}
+
+#reveal .controls a {
+    opacity: 0.1;
+    color: #fff;
+}
+
+#reveal .controls a.enabled {
+    color: #888;
+}
+
+#reveal section img.transparent {
+    margin: 0;
+    background: none;
+    border: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -o-box-shadow: none;
+    -ms-box-shadow: none;
+    box-shadow: none;
+}
+
+#reveal section img.white {
+    background: white;
+    padding: 10px;
+}
+
+#reveal blockquote.middle {
+    font-size: 48px;
+    margin-top: 200px;
+    padding: 20px;
+    line-height: 1.1em;
+}
+
+#reveal .attribution {
+    margin-bottom: 1em;
+}
+
+#reveal section img.minicoffee {
+    border: solid 1px #bbb;
+    background-color: white;
+    padding: 5px;
+    border-radius: 3px;
+    background: -moz-linear-gradient(center top , rgb(248, 248, 248), rgb(218, 218, 218)) repeat scroll 0% 0% transparent;
+    background: -webkit-linear-gradient(center top , rgb(248, 248, 248), rgb(218, 218, 218)) repeat scroll 0% 0% transparent;
+    background: -o-linear-gradient(center top , rgb(248, 248, 248), rgb(218, 218, 218)) repeat scroll 0% 0% transparent;
+    background: -ms-linear-gradient(center top , rgb(248, 248, 248), rgb(218, 218, 218)) repeat scroll 0% 0% transparent;
+    background: linear-gradient(center top , rgb(248, 248, 248), rgb(218, 218, 218)) repeat scroll 0% 0% transparent;
+}
+
+#reveal .coffeescript {
+    margin: 50px auto;
+    padding: 10px;
+    height: 50px;
+    width: 245px;
+    background: -moz-linear-gradient(center top , rgb(248, 248, 248), rgb(218, 218, 218)) repeat scroll 0% 0% transparent;
+    background: -webkit-linear-gradient(center top , rgb(248, 248, 248), rgb(218, 218, 218)) repeat scroll 0% 0% transparent;
+    background: -o-linear-gradient(center top , rgb(248, 248, 248), rgb(218, 218, 218)) repeat scroll 0% 0% transparent;
+    background: -ms-linear-gradient(center top , rgb(248, 248, 248), rgb(218, 218, 218)) repeat scroll 0% 0% transparent;
+    background: linear-gradient(center top , rgb(248, 248, 248), rgb(218, 218, 218)) repeat scroll 0% 0% transparent;
+    border-right: 1px solid rgb(170, 170, 170);
+    border-left: 1px solid rgb(170, 170, 170);
+    -moz-border-image: none 100% 100% 100% 100% / 1 1 1 1 / 0 0 0 0 stretch stretch;
+    -webkit-border-image: none 100% 100% 100% 100% / 1 1 1 1 / 0 0 0 0 stretch stretch;
+    -o-border-image: none 100% 100% 100% 100% / 1 1 1 1 / 0 0 0 0 stretch stretch;
+    -ms-border-image: none 100% 100% 100% 100% / 1 1 1 1 / 0 0 0 0 stretch stretch;
+    border-image: none 100% 100% 100% 100% / 1 1 1 1 / 0 0 0 0 stretch stretch;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(187, 187, 187) rgb(170, 170, 170) rgb(136, 136, 136);
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+#reveal ul li {
+    line-height: 1.5em;
+}
+
+#reveal ul.altjs {
+    margin-top: 30px;
+}
+
+#reveal ul.altjs img {
+    margin: 5px 0;
+    vertical-align: middle;
+}

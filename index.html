@@ -1,0 +1,1299 @@
+<!doctype html>  
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    
+    <title>The State of JavaScript</title>
+
+    <meta name="description" content="An easy to use CSS 3D slideshow tool for quickly creating good looking HTML presentations.">
+    <meta name="author" content="Hakim El Hattab">
+    
+                <link href='http://fonts.googleapis.com/css?family=Chau+Philomene+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+                <link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="lib/zenburn.css">
+    <link rel="stylesheet" href="css/jsvm.css">
+
+    <link rel="stylesheet" href="css/prism-dark.css" />
+    <script src="js/prism-es6.js"></script>
+<style>
+.orange .state-background {
+    background: #f1622f;
+}
+</style>
+  </head>
+  
+  <body>
+    
+    <div id="reveal">
+
+      <!-- Used to fade in a background when a specific slide state is reached -->
+      <div class="state-background"></div>
+      
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+                                <section>
+                                  <h2 class="computer" style="color: #000; margin-bottom: 40px;">The State of JavaScript</h1>
+                <h3 class="inverted old-school">Brendan Eich / Strange Loop 2012</h3>
+
+<img src="bb/assets/screenshots/09.jpg" height="420" width="672">
+          <script>
+            // Delicously hacky. Look away.
+            if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+            document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+          </script>
+                                </section>
+
+                                <section>
+                                  <h2>A very brief history</h2>
+
+<div>
+                                  <ul>
+                                    <li>Ten days in May 1995: “Mocha”
+                                    <li>September 1995: “LiveScript”
+                                    <li>December 1995: “JavaScript”
+                                    <li>1996-1997: ECMA-262 Ed. 1, aka ES1
+                                    <li>1999: ES3: modern JS baseline
+                                    <li>2005: the Ajax revolution
+                                    <li>2008: ES4 RIP, Harmony founded in July
+                                    <li>2009: ES5: “use strict”, JSON, Object.create, etc.
+                                    <li>2012: ES6 under way: modules, let, proxies, etc.
+                                  </ul>
+</div>
+                                </section>
+
+                                <section>
+                                  <h2>JS: Wat</h2>
+
+                                  <div style="position: relative; top: 50px;">
+                                  <img src="assets/images/wat.png">
+                                  <p><a href="https://www.destroyallsoftware.com/talks/wat">https://www.destroyallsoftware.com/talks/wat</a>
+                                  </div>
+                                </section>
+
+                                <section>
+                                  <section>
+                                    <h2>Wat Secrets Revealed</h2>
+
+                                    <div style="position: relative; top: 0px;">
+<pre><code class="language-javascript">
+js> {} + []
+0
+</code></pre>
+                                    </div>
+                                  </section>
+
+                                  <section>
+                                    <h2>Wat Secrets Revealed</h2>
+
+                                    <div style="position: relative; top: 0px;">
+<pre><code class="language-javascript">
+js> {}
+js> + []
+0
+js> + ''
+0
+</code></pre>
+                                    </div>
+                                  </section>
+
+                                  <section>
+                                    <h2>Wat Secrets Revealed</h2>
+
+                                    <div style="position: relative; top: 0px;">
+<pre><code class="language-javascript">
+js> ({} + [])
+"[object Object]"
+</code></pre>
+                                    </div>
+                                  </section>
+
+                                  <section>
+                                    <h2>Wat Secrets Revealed</h2>
+
+                                    <div style="position: relative; top: 0px;">
+<pre><code class="language-javascript">
+js> {} + {}
+NaN
+</code></pre>
+                                    </div>
+                                  </section>
+
+                                  <section>
+                                    <h2>Wat Secrets Revealed</h2>
+
+                                    <div style="position: relative; top: 0px;">
+<pre><code class="language-javascript">
+js> {}
+js> + {}
+NaN
+js> + '[object Object]'
+NaN
+</code></pre>
+                                    </div>
+                                  </section>
+
+                                  <section>
+                                    <h2>Wat Secrets Revealed</h2>
+
+                                    <div style="position: relative; top: 0px;">
+<pre><code class="language-javascript">
+js> ({} + {})
+"[object Object][object Object]"
+</code></pre>
+                                    </div>
+                                  </section>
+
+                                  <section>
+                                    <h2>Wat Secrets Revealed</h2>
+
+                                    <div style="position: relative; top: 0px;">
+<pre><code class="language-javascript">
+js> Array(16).join()
+",,,,,,,,,,,,,,,"
+</code></pre>
+                                    </div>
+                                  </section>
+
+                                  <section>
+                                    <h2>Wat Secrets Revealed</h2>
+
+                                    <div style="position: relative; top: 0px;">
+<pre><code class="language-javascript">
+js> Array(16).join().length
+15
+</code></pre>
+                                    </div>
+                                  </section>
+
+                                  <section>
+                                    <h2>Wat Secrets Revealed</h2>
+
+                                    <div style="position: relative; top: 0px;">
+<pre><code class="language-javascript">
+js> 'wat' - 1
+NaN
+</code></pre>
+                                    </div>
+                                  </section>
+
+                                  <section>
+<img src="assets/images/jsfunge.png" height="591" width="1045">
+                                  </section>
+                                </section>
+
+                                <section>
+                                  <h2 style="position: relative; top: 150px;;">ES6 is coming</h2>
+<div style="position: relative; top: 150px;">
+                                  <p> (JS evolves along with the rest of the web standards) </p>
+</div>
+                                </section>
+
+                                <section>
+                                  <h2>ECMAScript Edition 6</h2>
+
+<div style="position: relative; top: 50px;">
+                                  <p><a href="http://wiki.ecmascript.org/doku.php?id=harmony:harmony"><strong>Official goals</strong></a>: a better language for</p>
+
+                                  <ul>
+                                    <li><strong>applications</strong> <img src="assets/images/left-arrow.png" class="transparent" style="vertical-align: bottom; margin-left: 20px;" width=95 height=46></li>
+                                    <li>libraries</li>
+                                    <li>code generators</li>
+                                  </ul>
+</div>
+                                </section>
+
+                                <section>
+                                  <h2>ECMAScript Edition 6</h2>
+
+<div style="position: relative; top: 50px;">
+                                  <p><a href="http://wiki.ecmascript.org/doku.php?id=harmony:harmony"><strong>Official goals</strong></a>: a better language for</p>
+
+                                  <ul>
+                                    <li>applications</li>
+                                    <li><strong>libraries</strong> <img src="assets/images/left-arrow.png" class="transparent" style="vertical-align: bottom; margin-left: 20px;" width=95 height=46></li>
+                                    <li>code generators</li>
+                                  </ul>
+</div>
+                                </section>
+
+                                <section>
+                                  <h2>Classes?!</h2>
+<img src="assets/images/no-classes.jpg">
+                                </section>
+
+                                <section>
+                                  <h2>No class</h2>
+<img src="assets/images/some-guys-have-no-class.jpg" height="384" width="576">
+                                </section>
+
+                                <section>
+                                  <section>
+                                    <h2>Maximally Minimal Classes</h2>
+
+<pre><code class="language-javascript">
+class SkinnedMesh extends THREE.Mesh {
+  constructor(geometry, materials) {
+    super(geometry, materials);
+ 
+    this.identityMatrix = new THREE.Matrix4();
+    this.bones = [];
+    this.boneMatrices = [];
+    ...
+  }
+ 
+  update(camera) {
+    ...
+    super.update();
+  }
+}
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Instead of this mess</h2>
+
+<pre><code class="language-javascript">
+function SkinnedMesh(geometry, materials) {
+  SkinnedMesh.__super__.constructor
+                       .call(this, geometry, materials);
+
+  this.identityMatrix = new THREE.Matrix4();
+  this.bones = [];
+  this.boneMatrices = [];
+  ...
+}
+__extends(SkinnedMesh, THREE.Mesh)
+ 
+SkinnedMesh.prototype.update = function (camera) {
+  ...
+  SkinnedMesh.__super__.update.call(this);
+}
+</code></pre>
+                                  </section>
+                                </section>
+
+                                <section>
+                                  <h2>Modules</h2>
+
+<pre><code class="language-javascript">
+module FastMath {
+    export function sin() { /*...*/ }
+    export function cos() { /*...*/ }
+}
+
+import {sin, cos} from FastMath;
+
+import $ from "http://js.com/jquery/1.8.1/jquery-min.js";
+</code></pre>
+                                </section>
+
+                                <section>
+                                  <section>
+                                    <h2>Symbols</h2>
+
+<pre><code class="language-javascript">
+const cloneSym = new Symbol();
+
+// Symbol names are guaranteed not to collide
+Object.defineProperty(Object.prototype, cloneSym, {
+  value: function () {
+    // universal cloning code unobtainium here
+  }
+});
+
+var twin = obj[cloneSym]();
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Private Symbols</h2>
+
+<pre><code class="language-javascript">
+module Branding {
+  const brandSym = new Symbol(); // not exported
+
+  export function brand(obj, mark) {
+    if (!obj.hasOwnProperty(brandSym))
+      obj[brandSym] = mark;
+  }
+
+  export function hasBrand(obj, mark) {
+    return obj[brandSym] === mark;
+  }
+}
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Symbol Syntax</h2>
+
+<pre><code class="language-javascript">
+public @clone;
+
+Object.defineProperty(Object.prototype, @clone, {
+  value: function () {
+    // universal cloning code unobtainium here
+  }
+});
+
+var twin = obj.@clone();
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Private Symbol Syntax</h2>
+
+<pre><code class="language-javascript">
+module Branding {
+  private @brand; // not exported
+
+  export function brand(obj, mark) {
+    if (!obj.hasOwnProperty(@brand))
+      obj.@brand = mark;
+  }
+
+  export function hasBrand(obj, mark) {
+    return obj.@brand === mark;
+  }
+}
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Private in Max/Min Classes</h2>
+
+<pre><code class="language-javascript">
+class SkinnedMesh extends THREE.Mesh {
+  private @identityMatrix,
+          @bones,
+          @boneMatrices;
+
+  constructor(geometry, materials) {
+    super(geometry, materials);
+ 
+    this.@identityMatrix = new THREE.Matrix4();
+    this.@bones = [];
+    this.@boneMatrices = [];
+    ...
+  }
+ 
+  ...
+}
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Symbol Utilities</h2>
+
+<pre><code class="language-javascript">
+// Internal string name, for debugging and diagnostics
+const myPublicSymbol = new Symbol("my public symbol");
+
+// Binding initializers for renaming and full control
+private @score = importedSharedSecrets.@score;
+</code></pre>
+                                  </section>
+                                </section>
+
+                                <section>
+                                  <h2>Lots of other goodies</h2>
+<img src="assets/images/cakes.jpg">
+                                </section>
+
+                                <section>
+                                  <h2>Default parameters</h2>
+
+<pre><code class="language-javascript">
+js> function f(a = 0, b = a * a, c = b * a) {
+  return [a, b, c];
+}
+js> f()
+[0, 0, 0]
+js> f(2)
+[2, 4, 8]
+js> f(2, 3)
+[2, 3, 6]
+js> f(2, 3, 4)
+[2, 3, 4]
+</code></pre>
+                                </section>
+
+                                <section>
+                                  <h2>Rest parameters</h2>
+
+<pre><code class="language-javascript">
+js> function f(a, b, ...r) {
+  print(Array.isArray(r));
+  return r.concat(a, b);
+}
+js> f(1, 2)
+true
+[1, 2]
+js> f(1, 2, 3)
+true
+[3, 1, 2]
+js> f(1, 2, 3, 4, 5)
+true
+[3, 4, 5, 1, 2]
+</code></pre>
+                                </section>
+
+                                <section>
+                                  <h2>Spread</h2>
+
+<pre><code class="language-javascript">
+js> a = [3, 4, 5]
+[3, 4, 5]
+js> b = [1, 2, ...a]
+[1, 2, 3, 4, 5]
+js> function f(...r) { return r; }
+js> function g(a) { return f(...a); }
+js> g(a)
+[3, 4, 5]
+</code></pre>
+                                </section>
+
+                                <section>
+                                  <section>
+                                    <h2><code>for-of</code>, Iterators &amp; Generators</h2>
+
+<pre><code class="language-javascript">
+js> for (var v of [1, 2, 3]) {
+  print(v)
+}
+1
+2
+3
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>No Default Iterator</h2>
+
+<pre><code class="language-javascript">
+js> for (var [k, v] of {p: 3, q: 4, r: 5}) {
+  print(k, v)
+}
+typein:24:0 TypeError: ({p:3, q:4, r:5}) is not iterable
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Custom Iteration</h2>
+
+<pre><code class="language-javascript">
+js> Object.defineProperty(Object.prototype, @iterator, {
+      value: function () {
+        var obj = this;
+        var keys = Object.keys(obj);
+        var i = 0;
+        return {
+          next: function () {
+            if (i == keys.length) throw StopIteration;
+            var key = keys[i++];
+            return [key, obj[key]];
+          }
+        };
+      }
+    });
+js> for (var [k, v] of {p:3, q: 4, r: 5}) print(k, v);
+p 3
+q 4
+r 5
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Generators FTW</h2>
+
+<pre><code class="language-javascript">
+js> function* items(o) { // in ES6 standard library
+  for (var k in o) {
+    yield [k, o[k]];
+  }
+}
+js> for (var [k, v] of items({p:3, q: 4, r: 5})) {
+  print(k, v);
+}
+p 3
+q 4
+r 5
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Generator as Default Iterator</h2>
+
+<pre><code class="language-javascript">
+js> Object.defineProperty(Object.prototype, @iterator, {
+      value: items
+    });
+js> for (var [k, v] of {p:3, q: 4, r: 5}) print(k, v);
+p 3
+q 4
+r 5
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Callback Hell</h2>
+
+<pre><code class="language-javascript">
+load("config.json",
+  function(config) {
+    db.lookup(JSON.parse(config).table, username,
+      function(user) {
+        load(user.id + ".png", function(avatar) {
+          // <-- you could fit a cow in there!
+        });
+      }
+    );
+  }
+);
+</code></pre>
+
+<a href="http://www.flickr.com/photos/fredo/128929221/sizes/q/in/photostream/"><img src="assets/images/cow-profile.jpg"></a>
+                                  </section>
+
+                                  <section>
+                                    <h2>Promises Purgatory</h2>
+
+<pre><code class="language-javascript">
+load("config.json")
+  .then(function(config) {
+    return db.lookup(JSON.parse(config).table);
+  })
+  .then(function(user) { return load(user.id + ".png"); })
+  .then(function(avatar) { /* ... */ });
+</code></pre>
+
+<img src="assets/images/string_on_finger.png">
+                                  </section>
+
+                                  <section>
+                                    <h2>Shallow Coroutine Heaven</h2>
+
+<pre><code class="language-javascript">
+import spawn from "http://taskjs.org/es6-modules/task.js";
+
+spawn(function* () {
+  var config = JSON.parse(yield load("config.json"));
+  var user = yield db.lookup(config.table, username);
+  var avatar = yield load(user.id + ".png");
+  // ...
+});
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Comprehensions</h2>
+
+<pre><code class="language-javascript">
+// Using depth-first search and constraint propagation,
+// try all possible values.
+function search(values) {
+    if (!values)
+        return false;   // Failed earlier
+
+    if (all(values[s].length == 1 for (s in squares)))
+        return values;  // Solved!
+
+    // Choose unfilled square s with fewest possibilities
+    let a = [values[s].length + s for (s in squares)
+                                  if (values[s].length > 1)]
+            .sort();
+    let s = a[0].slice(-2);
+    return some(search(assign(values.copy(), s, d))
+                for (d in values[s]));
+}
+</code></pre>
+                                  </section>
+                                </section>
+
+                                <section>
+                                  <section>
+                                    <h2>Map</h2>
+
+<pre><code class="language-javascript">
+js> var objkey1 = {toString: function(){return "objkey1"}}
+js> var objkey2 = {toString: function(){return "objkey2"}}
+js> 
+js> var map = Map([[objkey1, 42], [objkey2, true]])
+js> map.get(objkey1)
+42
+js> map.get(objkey2)
+true
+js> assert(!map.has("objkey1") && !map.has("objkey2"))
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Map set &amp; get</h2>
+
+<pre><code class="language-javascript">
+js> map.set(objkey1, 43)
+js> map.get(objkey1)
+43
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Map iteration, size</h2>
+
+<pre><code class="language-javascript">
+js> map.set("stringkey", "44!")
+js> for (var [k, v] of map) {
+  print(k, v)
+}
+objkey1 43
+objkey2 true
+stringkey 44!
+js> map.size()
+3
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Map cycles</h2>
+
+<pre><code class="language-javascript">
+js> map.set(objkey2, objkey1)
+js> map.set(objkey1, objkey2)
+js> for (var [k, v] of map) {
+  print(k, v)
+}
+objkey1 objkey2
+objkey2 objkey1
+stringkey 44!
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Map delete</h2>
+
+<pre><code class="language-javascript">
+js> map.delete(objkey1)
+true
+js> map.delete(objkey1)
+true
+js> for (var [k, v] of map) {
+  print(k, v)
+}
+stringkey 44!
+js> map.size()
+1
+</code></pre>
+                                  </section>
+                                </section>
+
+                                <section>
+                                  <section>
+                                    <h2>Set</h2>
+
+<pre><code class="language-javascript">
+js> var set = Set([1, true, "three"])
+js> set.has(1)
+true
+js> set.has(2)
+false
+js> for (var e of set) {
+  print(e)
+}
+1
+true
+three
+js> set.size()
+3
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Set delete, iteration</h2>
+
+<pre><code class="language-javascript">
+js> set.delete("three")
+true
+js> for (var e of set) {
+  print(e)
+}
+1
+true
+js> set.size()
+2
+js> set.add("three")
+js> set.size()
+3
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Set add, has</h2>
+
+<pre><code class="language-javascript">
+js> var four = {toString: function(){return '4!'}}
+js> set.add(four)
+js> set.has(four)
+true
+js> for (var e of set) {
+  print(e)
+}
+1
+true
+three
+4!
+</code></pre>
+                                  </section>
+                                </section>
+
+                                <section>
+                                  <section>
+                                    <h2>WeakMap</h2>
+
+<pre><code class="language-javascript">
+js> var wm = WeakMap()
+js> wm.set(objkey1, objkey2)
+js> wm.set(objkey2, objkey1)
+js> wm.has(objkey1)
+true
+js> wm.get(objkey1)
+({toString:(function (){return "objkey2"})})
+js> wm.has(objkey2)
+true
+js> wm.get(objkey2)
+({toString:(function () {return 'objkey1'})})
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>WeakMap, not LeakMap</h2>
+
+<pre><code class="language-javascript">
+js> gc()
+"before 286720, after 282720\n"
+js> objkey1 = null
+null
+js> wm.get(objkey2)
+({toString:(function () {return 'objkey1'})})
+js> objkey2 = null
+null
+js> gc()
+"before 286720, after 282624\n"
+</code></pre>
+                                  </section>
+                                </section>
+
+                                <section>
+                                  <section>
+                                    <h2>Proxy</h2>
+
+<pre><code class="language-javascript">
+js> var MethodSink = Proxy({}, {
+  has: function(target, name) { return true; },
+  get: function(target, name, receiver) {
+    if (name in Object.prototype) {
+      return Object.prototype[name];
+    }
+    return function(...args) {
+      return receiver.__noSuchMethod__(name, args);
+    }
+  }
+});
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Default __noSuchMethod__</h2>
+
+<pre><code class="language-javascript">
+js> Object.defineProperty(
+  Object.prototype,
+  '__noSuchMethod__',
+  {
+    configurable: true,
+    writable: true,
+    value: function(name, args) {
+      throw new TypeError(name + " is not a function");
+    }
+  }
+);
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Using __noSuchMethod__</h2>
+
+<pre><code class="language-javascript">
+js> var obj = {
+      foo: 1 ,
+      __proto__: MethodSink,
+      __noSuchMethod__: function(name, args) {
+        return name;
+      }
+    }
+js> obj.foo
+1
+js> obj.bar()
+"bar"
+js> obj.toString
+function toString() {
+    [native code]
+}
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <h2>Proxying __noSuchMethod__</h2>
+
+<pre><code class="language-javascript">
+js> obj.bar
+(function (...args) {
+      return receiver.__noSuchMethod__(name, args);
+    })
+js> var thunk = obj.bar
+js> thunk()
+"bar"
+</code></pre>
+                                  </section>
+                                </section>
+
+                                <section>
+                                  <h2>ECMAScript Edition 6</h2>
+
+<div style="position: relative; top: 50px;">
+                                  <p><a href="http://wiki.ecmascript.org/doku.php?id=harmony:harmony"><strong>Official goals</strong></a>: a better language for</p>
+
+                                  <ul>
+                                    <li>applications</li>
+                                    <li>libraries</li>
+                                    <li><strong>code generators</strong> <img src="assets/images/left-arrow.png" class="transparent" style="vertical-align: bottom; margin-left: 20px;" width=95 height=46></li>
+                                  </ul>
+</div>
+                                </section>
+
+                                <section>
+                                  <h2>Why compile to JS?</h2>
+
+                                  <ul class="altjs">
+                                    <li><img src="assets/images/coffeescript.png" width=138 class="transparent minicoffee" /> &ndash; lightweight syntax, conveniences
+                                    <li><img src="assets/images/clojure-logo10.png" width=150 class="transparent" /> &ndash; macros, uniform data abstraction (incl. DOM)
+                                    <li><img src="assets/images/roy.jpg" width=150 class="transparent" /> &ndash; pattern matching, types
+                                    <li><img src="assets/images/adsafe.gif" width=150 class="transparent" /> &ndash; security, isolation
+                                    <li><img src="assets/images/tamejs.png" width=150 class="transparent" /> &ndash; synchronous style events
+                                    <li>More at <a href="http://altjs.org/">altjs.org</a>
+                                  </ul>
+                                </section>
+
+                                <section>
+                                  <img src="assets/images/shanselman.png">
+                                  <img src="assets/images/shanselman-headshot.jpg" class="transparent" style="position: relative; top: 60px; left: -130px; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);">
+                                </section>
+
+                                <section>
+                                  <img height="450" width="600" src="assets/images/yunhbc.png">
+                                </section>
+
+                                <section>
+                                  <img style="position: relative; top: 100px; border: solid 1px lightgray;" class="transparent" src="assets/images/applet-loading.png" />
+                                  <img style="position: relative; top: -80px; left: -170px;" class="transparent" src="assets/images/sbbod.gif" />
+                                </section>
+
+                                <section>
+                                  <div style="position: relative; top: 150px;">
+                                  <blockquote>We had always thought that Java's JVM would be the VM of the web, but it turns out that it's JavaScript. JavaScript's parser does a more efficient job... than the JVM's bytecode verifier.</blockquote>
+                                  <p class="attribution">&mdash; <a href="http://www.hanselman.com/blog/JavaScriptIsAssemblyLanguageForTheWebPart2MadnessOrJustInsanity.aspx">Doug Crockford</a></p>
+                                  </div>
+                                </section>
+
+
+                                <section>
+                                  <h2>JS &gt; bytecode</h2>
+
+                                  <ul>
+                                    <li>Dynamic typing &rArr; no verification
+                                    <li>Type inference &rArr; delayed optimization
+                                    <li>Would bytecode compress as well?
+                                    <li>Bytecode standardization would suck
+                                    <li>Bytecode versioning would suck more
+                                    <li>Low-level bytecode is future-hostile
+                                    <li>Many humans like writing JS
+                                  </ul>
+                                </section>
+
+                                <section>
+                                  <h2>One JS, for humans <u>and</u> computers</h2>
+
+                                  <img src="assets/images/yinyang.gif" width=300 class="transparent" style="position: relative; top: 50px;" />
+                                </section>
+
+                                <section>
+                                  <section>
+
+                                    <h2>Example: goto</h2>
+
+<pre style="position: relative; top: 100px;"><code contenteditable>
+function f() {
+L0:
+    g();
+L1:
+    if (p)
+        goto L0;
+    o.m();
+    goto L1;
+}
+</code></pre>
+                                  </section>
+
+                                  <section>
+                                    <img style="position: absolute; left: -120px; top: 320px;" src="assets/images/dijkstra.jpg" height=300 />
+
+                                    <h2>goto considered...</h2>
+
+                                    <ul style="position: relative; top: 100px;">
+                                      <li><b>Compilers:</b> yes please!
+                                      <li><b>Humans:</b> DO NOT WANT
+                                    </ul>
+
+                                  </section>
+
+                                  <section>
+                                    <h2>Better: proper tail calls</h2>
+
+<pre style="position: relative; top: 50px;"><code contenteditable>
+function f() {
+    function L0() {
+        g();
+        return L1();     // goto with arguments
+    }
+    function L1() {
+        if (p)
+            return L0(); // goto with arguments
+        o.m();
+        return L0();     // goto with arguments
+    }
+    return L0();         // goto with arguments
+}
+</code></pre>
+
+<p style="position: relative; top: 80px;"><a href="http://wiki.ecmascript.org/doku.php?id=harmony:proper_tail_calls">ES6 proposal</a></p>
+                                  </section>
+                                </section>
+
+                                <section>
+                                  <h2 style="position: relative; top: 150px; line-height: 1.2em;">Cool story.<br/>But compared to native...</h2>
+                                </section>
+
+                                <section>
+                                  <img class="transparent" src="assets/images/nacl-rocks.jpg" width=1280 style="position: absolute; top: -100px; left: -190px; padding: 0; margin: 0;" />
+                                  <h1 style="color: white; position: relative; top: 50px;">NaCl?</h1>
+
+                                  <ul style="position: absolute; top: 400px; left: 50px;">
+                                    <li style="color: #008000;">Impressive engineering
+                                    <li style="color: #008000;">Driving competition
+                                  </ul>
+
+                                  <ul style="position: absolute; top: 400px; left: 550px; width: 500px;">
+                                    <li style="color: #a00000;">Not portable
+                                    <li style="color: #a00000;">Defined by implementation
+                                    <li style="color: #a00000;">No view source
+                                  </ul>
+                                </section>
+
+                                <section>
+                                  <h2>JS can sandbox, too</h2>
+
+<div>
+<pre><code contenteditable>
+var HEAP = new ArrayBuffer(HEAP_SIZE); // friends w/ JITs
+</code></pre>
+<br>
+<img class="transparent" src="assets/images/typed-arrays.png">
+<br>
+<a href="http://emscripten.org">http://emscripten.org</a></p>
+
+</div>
+                                </section>
+
+                                <section>
+                                  <a href="http://syntensity.com/static/bb/client_7b.html"><img src="assets/images/banana-bread.jpg" /></a>
+                                </section>
+
+                                <section>
+                                  <section>
+                                    <h2>Low-Level JavaScript</h2>
+
+                                    <div style="position: relative; top: 50px;">
+<pre><code class="language-javascript" contenteditable>
+function void swap(int *a, int *b) {
+    let int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+let int x = 1, y = 2;
+swap(&x, &y);
+console.log(x, y);
+</code></pre>
+
+<p style="margin-top: 1em;"><a href="http://lljs.org">http://lljs.org</a></p>
+                                    </div>
+                                  </section>
+
+                                  <section>
+                                    <h2>LLJS Memory Model</h2>
+<div>
+<img class="transparent" src="assets/images/model-heap.png">
+</div>
+                                  </section>
+                                </section>
+
+                                <section>
+                                  <h2 style="position: relative; top: 150px;;">The last missing VM feature...</h2>
+                                </section>
+
+        <section>
+<img class="transparent" style="position: absolute; top: 50px; left: 255px;" src="assets/images/types.png" width=450 />
+
+<img class="transparent" src="assets/images/screaming-woman.png" style="border: 0; position: absolute; top: 250px; left: 10px;" />
+<!--
+          <h1 class="title-slide" style="font-size: 500%; color: #000; margin-bottom: 20px;">Types!</h1>
+
+<img src="assets/images/screaming-woman.png" style="
+    border: 0;
+float: left;
+width: 297px;
+height: 300px;
+-moz-box-shadow: none;
+box-shadow: none !important;
+background:none;
+margin: 0;
+">
+-->
+        </section>
+
+                                <section>
+                                  <h2>Won't be missed...</h2>
+
+                                  <pre><code contenteditable>
+class AbstractSingletonProxyFactoryBean {
+    /** @type Object It's an object! */
+    private Object bean;
+}
+                                  </code></pre>
+
+                                  <img width=638 height=261 src="assets/images/skywalker-nooooo-cropped.jpg">
+                                </section>
+
+                                <section>
+                                  <h2>Typed arrays</h2>
+
+<pre style="position: relative; top: 100px;"><code contenteditable>
+var a = new Uint32Array(1024);
+
+for (var i = 0, n = a.length; i < n; i++) {
+    a[i] = i * i;
+}
+</code></pre>
+                                </section>
+
+                                <section>
+                                  <h2>Typed objects</h2>
+
+                                  <pre style="position: relative; top: 50px;"><code contenteditable>
+// a user-defined type
+var Point = struct({
+    x: uint32,
+    y: uint32
+});
+
+var origin = new Point(0, 0);
+
+console.log(origin.x); // 0
+console.log(origin.y); // 0
+                                  </code></pre>
+
+<p style="position: relative; top: 100px;"><a href="http://wiki.ecmascript.org/doku.php?id=harmony:binary_data">ES6 proposal</a></p>
+                                </section>
+
+                                <section>
+                                  <h2 style="position: relative; top: 150px;;">The last missing <b>JS</b> feature...</h2>
+                                </section>
+
+                                <section>
+                                  <section>
+                                    <h2>Macros?</h2>
+
+<pre><code class="language-javascript">
+macro def {
+  case $name:ident $params $body => {
+    function $name $params $body
+  }
+}
+
+def sweet(a) {
+  console.log("Macros are sweet!");
+}
+</code></pre>
+
+                                  </section>
+
+                                  <section>
+                                    <h2>Sweet!</h2>
+
+<ul>
+<li> Hygienic macros for JS, inspired by Scheme &amp; Racket
+<li> Breakthrough: a sound JS reader (no full parsing)
+<li> See <a href="http://sweetjs.org/">sweetjs.org</a> (<a href="http://github.com/mozilla/sweet.js">github</a>)
+<li> By Tim Disney (UCSC) with Paul Stansifer (Northeastern), Dave Herman (Mozilla)
+<li> Maybe for ES7 -- it could happen!
+<li> Pull requests accepted -- please help us
+</ul>
+                                  </section>
+                                </section>
+
+                                <section>
+                                  <h2 style="position: relative; top: 150px;;">More games!</h2>
+                                </section>
+ 
+                                <section>
+                                  <h2>Cross-Compile XNA</h2>
+
+                                  <img src="assets/images/lumberjack.jpg" class="transparent" style="margin-bottom: 1em;" />
+
+                                  <p>
+                                  <img src="assets/images/jsil_48px.png" class="transparent" style="vertical-align: middle;" />
+                                  <a href="http://jsil.org">http://jsil.org</a>
+                                  </p>
+                                </section>
+
+                                <section>
+                                  <h2>Cross-Compile Android</h2>
+
+                                  <img src="assets/images/legion.png" class="transparent" style="margin-bottom: 1em;" height=400 />
+                                  <img src="assets/images/xmlvm.jpg" class="transparent" style="margin-bottom: 1em;" height=400 />
+
+                                  <p>
+                                  <a href="http://xmlvm.org">http://xmlvm.org</a>
+                                  </p>
+                                </section>
+
+                                <section>
+                                  <h2>Parallelism!</h2>
+
+                                  <img class="transparent" src="assets/images/opteron.png" />
+          <img class="transparent" width="561" height="326" src="assets/images/gpu.png" style="position: relative; top: 100px;">
+                                </section>
+
+                                <section>
+                                  <h2>River Trail</h2>
+
+<pre style="position: relative; top: 100px;"><code contenteditable>
+pixelData.map(toGrayScale)
+         .map(function(color) {
+    return [color,color,color,255]; // new pixel
+})
+
+</code></pre>
+
+<p style="position: relative; top: 150px;"><a href="http://wiki.ecmascript.org/doku.php?id=strawman:data_parallelism">ES7 proposal</a></p>
+                                </section>
+
+                                <section>
+                                  <h2>PJS: Parallel JavaScript</h2>
+
+<pre style="position: relative; top: 100px;"><code contenteditable>
+var tasks = rows.map(function(row, i) {
+    return fork(render, [row, i]); // fork a subtask
+});
+oncompletion(function() {
+    var images = tasks.map(function(task) {
+        return task.get();  // get subtask result
+    });
+    display(images);
+});
+
+</code></pre>
+
+                                </section>
+
+                                <section>
+                                  <h2 style="position: relative; top: 150px;;">Conclusion</h2>
+                                </section>
+
+                                <section>
+                                  <h2>The Web is the Platform</h2>
+
+                                  <ul style="position: relative; top: 100px;">
+                                    <li>JS is the web's &ldquo;virtual machine&rdquo;
+                                    <li>Compilers: productivity, performance, portability
+                                    <li>Evolving a better JS for people <i>and</i> compilers
+                                  </ul>
+                                </section>
+
+                                <section>
+                                  <img src="assets/images/alwaysbetonjs.png" height="540" />
+                                  <p><a href="http://www.alwaysbetonjs.com">http://www.alwaysbetonjs.com</a>
+                                </section>
+      </div>
+
+      <!-- The navigational controls UI -->
+      <aside class="controls">
+        <a class="left" href="#">&#x25C4;</a>
+        <a class="right" href="#">&#x25BA;</a>
+        <a class="up" href="#">&#x25B2;</a>
+        <a class="down" href="#">&#x25BC;</a>
+      </aside>
+
+      <!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+      <div class="progress"><span></span></div>
+      
+    </div>
+    
+    <script src="js/reveal.js"></script>
+
+    <!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
+    <script src="lib/highlight.js"></script>
+    <script src="lib/classList.js"></script>
+    
+    <script>
+      // Parse the query string into a key/value object
+      var query = {};
+      location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+        query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+      } );
+
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // If true; each slide will be pushed to the browser history
+        history: true,
+
+        // Flags if mouse wheel navigation should be enabled
+        mouseWheel: true,
+
+        // Apply a 3D roll to links on hover
+        rollingLinks: true,
+
+        // UI style
+        theme: query.theme || 'default', // default/neon
+
+        // Transition style
+        transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+      });
+
+      hljs.initHighlightingOnLoad();
+    </script>
+
+  </body>
+</html>
