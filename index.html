@@ -603,16 +603,16 @@ function search(values) {
     if (!values)
         return false;   // Failed earlier
 
-    if (all(values[s].length == 1 for (s in squares)))
+    if (all(values[s].length == 1 for (s of squares)))
         return values;  // Solved!
 
     // Choose unfilled square s with fewest possibilities
-    let a = [values[s].length + s for (s in squares)
+    let a = [values[s].length + s for (s of squares)
                                   if (values[s].length > 1)]
             .sort();
     let s = a[0].slice(-2);
     return some(search(assign(values.copy(), s, d))
-                for (d in values[s]));
+                for (d of values[s]));
 }
 </code></pre>
                                   </section>
